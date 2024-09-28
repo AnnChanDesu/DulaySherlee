@@ -1,0 +1,278 @@
+:root {
+    --mario-red: #FF0000;
+    --mario-blue: #3C3B6E;
+    --mario-yellow: #FFC300;
+    --mario-green: #00A86B;
+}
+
+body {
+    font-family: 'Typeface Mario 64', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #87CEEB;
+    color: #333;
+    background-image: url(https://www.shutterstock.com/image-vector/pixel-art-clouds-background-seamless-600nw-2002768895.jpg);
+}
+
+
+header {
+    background-color: var(--mario-red);
+    color: #FFFFFF;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    text-shadow: 2px 2px var(--mario-blue);
+}
+
+nav {
+    background-color: var(--mario-yellow);
+    padding: 0.5rem;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--mario-blue);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--mario-red);
+}
+
+main {
+    padding: 20px;
+    background-color: #FFFFFF;
+    margin: 15px auto;
+    border-radius: 5px;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    
+}
+
+h2 {
+    color: var(--mario-red);
+    border-bottom: 2px solid var(--mario-yellow);
+    padding-bottom: 10px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li:before {
+    content: "🍄";
+    margin-right: 5px;
+}
+
+/* focus on the grid and overflows*/
+.character-grid, .character-gridEnemies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Control size of grid columns */
+    gap: 20px;
+    overflow:visible; /* makes sure the content isn't clipped when bigger than container */
+}
+
+.character-card, .character-cardEnemies {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+    overflow:visible; 
+    position: relative; /* Ensure the position is relative for z-index effects */
+}
+
+.character-card img, .character-cardEnemies img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain; /* Ensure the image fits without overflowing */
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.character-card h3, .character-cardEnemies h3 {
+    margin: 10px 0 5px 0;
+    font-size: 1.2em;
+}
+
+.character-card p, .character-cardEnemies p {
+    opacity: 0; /* Initially hidden */
+    max-height: 0;
+    overflow: hidden; /* Hide content when not hovered */
+    transition: opacity 0.3s ease, max-height 0.5s ease; 
+}
+
+.character-card:hover p, .character-cardEnemies:hover p {
+    opacity: 1; /* Make text visible */
+    max-height: 150px; /* Set a fixed height for scrollability */
+    overflow-y: auto; /* Enable vertical scrolling */
+    transition: opacity 0.3s ease, max-height 0.5s ease; 
+}
+
+.character-card p::-webkit-scrollbar, .character-cardEnemies p::-webkit-scrollbar {
+    width: 6px; /* Customize scrollbar width */
+}
+
+.character-card p::-webkit-scrollbar-thumb, .character-cardEnemies p::-webkit-scrollbar-thumb {
+    background-color: var(--mario-blue); /* Scrollbar thumb color */
+    border-radius: 10px; /* Rounded scrollbar edges */
+}
+
+.character-card p::-webkit-scrollbar-track, .character-cardEnemies p::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Scrollbar track color */
+}
+
+/* Optional: Add padding for better readability */
+.character-card p, .character-cardEnemies p {
+    padding-right: 10px; /* Padding to avoid content getting too close to scrollbar */
+}
+
+.character-card:hover, .character-cardEnemies:hover {
+    transform: scale(1.1); /* Scale up the card */
+    z-index: 2; 
+    border-style: dotted; 
+    border-color: #e7e322; 
+}
+
+/* Custom hover styles for specific characters */
+.character-card:nth-child(1):hover {
+    background-color: #4cbb17;
+}
+
+.character-card:nth-child(2):hover {
+    background-color: #FF69B4;
+}
+
+.character-card:nth-child(3):hover {
+    background-color: #6fd251;
+}
+
+.character-card:nth-child(4):hover {
+    background-color: #87CEEB;
+}
+
+.character-card:nth-child(5):hover {
+    background-color: #FFCC00;
+}
+
+.character-card:nth-child(6):hover {
+    background-color: #8B4513;
+}
+
+.character-card:nth-child(7):hover {
+    background-color: #87CEFA;
+}
+
+.character-card:nth-child(8):hover {
+    background-color: #FFD700;
+}
+
+.character-card:nth-child(9):hover {
+    background-color: #800080;
+}
+
+.character-card:nth-child(10):hover {
+    background-color: #FF69B4;
+}
+
+.character-cardEnemies:nth-child(1):hover {
+    background-color: #FF4500;
+}
+
+.character-cardEnemies:nth-child(2):hover {
+    background-color: #f3bf45;
+}
+
+.character-cardEnemies:nth-child(3):hover {
+    background-color: #32CD32;
+}
+
+.character-cardEnemies:nth-child(4):hover {
+    background-color: #FFFFFF;
+}
+
+.character-cardEnemies:nth-child(5):hover {
+    background-color: #228B22;
+}
+
+.character-cardEnemies:nth-child(6):hover {
+    background-color: #000000;
+}
+
+.character-cardEnemies:nth-child(7):hover {
+    background-color: #FF0000;
+}
+
+.character-cardEnemies:nth-child(8):hover {
+    background-color: #FF6347;
+}
+
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction:column;
+        align-items:center;
+    }
+    
+    nav ul li {
+        margin: 5px 0;
+    }
+}
+
+footer {
+    background-color: var(--mario-blue);
+    color: #FFFFFF;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer a {
+    color: #ffffff; /* Lighter color for the links */
+    text-decoration: none; /* Remove the underline */
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #cccccc; /* Even lighter on hover */
+}
